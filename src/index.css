@@ -1,0 +1,326 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   MICHIcakes — Sistema de marca V2
+   Base compartida + escalas por marca (brief §8 / §9).
+   Dirección: catálogo editorial artesanal — papel, tinta,
+   hilos finos, numeración impresa, color con intención.
+   ============================================================ */
+@theme {
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-sans: 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-script: 'Caveat', 'Nunito Sans', cursive;
+
+  /* Base — crema / café / caramelo / dorado (brief §9) */
+  --color-cream: #f7f0e3;
+  --color-cream-hi: #fcf8ef;
+  --color-cream-deep: #ece0ca;
+  --color-coffee: #4a281c;
+  --color-ink: #3a2016;
+  --color-coffee-soft: #6b4436;
+  --color-caramel: #d99045;
+  --color-gold: #c7a15a;
+  --color-line: rgba(58, 32, 22, 0.16);
+
+  /* MichiCAKES — dulce / caramelo / durazno / crema */
+  --color-michi-bg: #f7efe1;
+  --color-michi-ink: #45261a;
+  --color-michi-accent: #cf8438;
+  --color-michi-soft: #f1cda6;
+
+  /* Cookies By Shaly — chocolate / café / beige / crema */
+  --color-cookies-bg: #ece0d0;
+  --color-cookies-ink: #38210f;
+  --color-cookies-accent: #7a4527;
+  --color-cookies-soft: #c8a67d;
+
+  /* Don Patacón — verde / amarillo / naranja / café (brief §9) */
+  --color-patacon-bg: #f2eed9;
+  --color-patacon-ink: #2c3a1c;
+  --color-patacon-accent: #4c7a30;
+  --color-patacon-soft: #e6b23c;
+
+  --radius-card: 14px;
+  --shadow-soft: 0 1px 2px rgba(58, 32, 22, 0.07), 0 14px 40px -18px rgba(58, 32, 22, 0.28);
+  --shadow-lift: 0 2px 4px rgba(58, 32, 22, 0.08), 0 30px 60px -24px rgba(58, 32, 22, 0.32);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --brand-bg: var(--color-michi-bg);
+    --brand-ink: var(--color-michi-ink);
+    --brand-accent: var(--color-michi-accent);
+    --brand-soft: var(--color-michi-soft);
+    --brand-line: rgba(58, 32, 22, 0.16);
+  }
+
+  [data-brand='michicakes'] {
+    --brand-bg: var(--color-michi-bg);
+    --brand-ink: var(--color-michi-ink);
+    --brand-accent: var(--color-michi-accent);
+    --brand-soft: var(--color-michi-soft);
+    --brand-line: color-mix(in srgb, var(--color-michi-ink) 18%, transparent);
+  }
+  [data-brand='cookies'] {
+    --brand-bg: var(--color-cookies-bg);
+    --brand-ink: var(--color-cookies-ink);
+    --brand-accent: var(--color-cookies-accent);
+    --brand-soft: var(--color-cookies-soft);
+    --brand-line: color-mix(in srgb, var(--color-cookies-ink) 18%, transparent);
+  }
+  [data-brand='patacon'] {
+    --brand-bg: var(--color-patacon-bg);
+    --brand-ink: var(--color-patacon-ink);
+    --brand-accent: var(--color-patacon-accent);
+    --brand-soft: var(--color-patacon-soft);
+    --brand-line: color-mix(in srgb, var(--color-patacon-ink) 16%, transparent);
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 84px;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Textura de papel — grano fibroso muy sutil, fijo (brief §47) */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-optical-sizing: auto;
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    color: var(--color-coffee);
+    text-wrap: balance;
+  }
+
+  em,
+  .italic-accent {
+    font-style: italic;
+    font-variation-settings: 'SOFT' 40;
+  }
+
+  :focus-visible {
+    outline: 2.5px solid var(--color-caramel);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  ::selection {
+    background: var(--color-caramel);
+    color: #fff;
+  }
+}
+
+@layer components {
+  .section-pad {
+    padding-block: clamp(4.5rem, 11vw, 9rem);
+  }
+
+  .wrap {
+    width: min(100% - 2.5rem, 78rem);
+    margin-inline: auto;
+  }
+  .wrap-tight {
+    width: min(100% - 2.5rem, 58rem);
+    margin-inline: auto;
+  }
+
+  /* Kicker editorial: hilo corto + versalita espaciada */
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--brand-accent, var(--color-caramel));
+  }
+  .kicker::before {
+    content: '';
+    width: 1.8rem;
+    height: 1.5px;
+    background: currentColor;
+  }
+
+  /* Numeral impreso del índice de secciones (brief §43) */
+  .index-num {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.75rem, 7vw, 4.5rem);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.4px color-mix(in srgb, var(--brand-ink, var(--color-coffee)) 40%, transparent);
+    letter-spacing: 0.02em;
+  }
+
+  .script {
+    font-family: var(--font-script);
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--brand-accent, var(--color-caramel));
+  }
+
+  .hairline {
+    height: 1px;
+    background: var(--brand-line, var(--color-line));
+    border: 0;
+  }
+
+  /* Passe-partout: la imagen vive dentro de un marco de papel */
+  .mat {
+    padding: 10px;
+    background: color-mix(in srgb, var(--brand-bg, var(--color-cream)) 70%, #fff);
+    border: 1px solid var(--brand-line, var(--color-line));
+    border-radius: var(--radius-card);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.95rem 1.7rem;
+    border-radius: 999px;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: transform 0.18s var(--ease-out-soft), background-color 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    min-height: 48px;
+  }
+  .btn:active {
+    transform: translateY(1px) scale(0.99);
+  }
+  .btn svg {
+    transition: transform 0.22s var(--ease-out-soft);
+  }
+  .btn:hover svg {
+    transform: translateX(3px);
+  }
+
+  .btn-primary {
+    background: var(--color-coffee);
+    color: var(--color-cream-hi);
+  }
+  .btn-primary:hover {
+    background: #351c12;
+    box-shadow: var(--shadow-soft);
+  }
+  .btn-accent {
+    background: var(--brand-accent, var(--color-caramel));
+    color: #fff;
+  }
+  .btn-accent:hover {
+    filter: brightness(1.05);
+    box-shadow: var(--shadow-soft);
+  }
+  .btn-ghost {
+    background: transparent;
+    border-color: color-mix(in srgb, var(--color-coffee) 32%, transparent);
+    color: var(--color-coffee);
+  }
+  .btn-ghost:hover {
+    border-color: var(--color-coffee);
+    background: color-mix(in srgb, var(--color-coffee) 6%, transparent);
+  }
+
+  /* Enlace de texto con flecha (brief §37 microinteracciones con propósito) */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brand-ink, var(--color-coffee));
+    cursor: pointer;
+  }
+  .link-arrow svg {
+    transition: transform 0.22s var(--ease-out-soft);
+  }
+  .link-arrow:hover svg {
+    transform: translateX(4px);
+  }
+
+  .chip {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--brand-line, var(--color-line));
+    color: color-mix(in srgb, var(--brand-ink, var(--color-coffee)) 70%, transparent);
+  }
+
+  /* Reveal on scroll — CSS + IO (brief §38: CSS antes que JS) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.75s var(--ease-out-soft), transform 0.75s var(--ease-out-soft);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Borde de papel rasgado entre marcas (brief §46) */
+  .torn-top {
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='24' preserveAspectRatio='none'%3E%3Cpath d='M0 24V8c60-6 90 10 150 6s90-14 150-10 100 14 160 10 110-16 170-12 100 12 160 10 120-14 180-10 90 12 130 10V24z' fill='%23000'/%3E%3C/svg%3E") top/100% 24px no-repeat, linear-gradient(#000, #000);
+    -webkit-mask-composite: source-over;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='24' preserveAspectRatio='none'%3E%3Cpath d='M0 24V8c60-6 90 10 150 6s90-14 150-10 100 14 160 10 110-16 170-12 100 12 160 10 120-14 180-10 90 12 130 10V24z' fill='%23000'/%3E%3C/svg%3E") top/100% 24px no-repeat, linear-gradient(#000, #000);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

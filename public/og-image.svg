@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F7F0E3"/>
+  <circle cx="600" cy="150" r="52" fill="#4A281C"/>
+  <g fill="#F7F0E3" transform="translate(600 150)">
+    <ellipse cx="0" cy="12" rx="20" ry="15"/>
+    <ellipse cx="-22" cy="-9" rx="8" ry="11"/>
+    <ellipse cx="22" cy="-9" rx="8" ry="11"/>
+    <ellipse cx="-10" cy="-24" rx="7" ry="10"/>
+    <ellipse cx="10" cy="-24" rx="7" ry="10"/>
+  </g>
+  <text x="600" y="330" text-anchor="middle" font-family="Georgia, serif" font-size="86" font-weight="700" fill="#4A281C">Un universo de sabores</text>
+  <text x="600" y="410" text-anchor="middle" font-family="Georgia, serif" font-size="40" fill="#D99045">MichiCAKES · Cookies By Shaly · Don Patacón</text>
+  <text x="600" y="480" text-anchor="middle" font-family="system-ui, sans-serif" font-size="30" fill="#6B4436">Dulce, salado y todo aquello que se te antoja.</text>
+</svg>
