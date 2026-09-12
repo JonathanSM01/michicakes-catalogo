@@ -1,5 +1,7 @@
 import ProductImage from './ProductImage.jsx';
-import { formatPrice } from '../data/products.js';
+import { formatPrice, BRANDS } from '../data/products.js';
+import { ShareIcon } from './SocialIcons.jsx';
+import { shareProduct } from '../lib/share.js';
 
 export default function ProductCard({ product, onOpen, index = 0 }) {
   const priceLabel = formatPrice(product.price);
@@ -72,11 +74,22 @@ export default function ProductCard({ product, onOpen, index = 0 }) {
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
           </button>
-          {product.imageType === 'referential' && (
-            <span className="text-[11px] italic text-[color-mix(in_srgb,var(--brand-ink)_52%,transparent)]">
-              Imagen referencial*
-            </span>
-          )}
+          <div className="flex items-center gap-2">
+            {product.imageType === 'referential' && (
+              <span className="text-[11px] italic text-[color-mix(in_srgb,var(--brand-ink)_52%,transparent)]">
+                Imagen referencial*
+              </span>
+            )}
+            <button
+              type="button"
+              onClick={() => shareProduct(product, BRANDS[product.brand].label)}
+              aria-label={`Compartir ${product.name}`}
+              title="Compartir"
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-full text-[var(--brand-ink)] transition-colors hover:bg-[color-mix(in_srgb,var(--brand-ink)_8%,transparent)]"
+            >
+              <ShareIcon className="h-[1.05rem] w-[1.05rem]" />
+            </button>
+          </div>
         </div>
       </div>
     </article>

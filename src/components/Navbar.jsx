@@ -8,6 +8,9 @@ const LINKS = [
   { href: '#michicakes', id: 'michicakes', label: 'Dulce' },
   { href: '#cookies', id: 'cookies', label: 'Cookies' },
   { href: '#patacon', id: 'patacon', label: 'Don Patacón' },
+  { href: '#resenas', id: 'resenas', label: 'Reseñas' },
+  { href: '#faq', id: 'faq', label: 'FAQ' },
+  { href: '#apoyanos', id: 'apoyanos', label: 'Apóyanos' },
   { href: '#pedido', id: 'pedido', label: 'Pedido' },
 ];
 

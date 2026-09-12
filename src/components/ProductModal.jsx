@@ -3,6 +3,8 @@ import ProductImage from './ProductImage.jsx';
 import { BRANDS, formatPrice } from '../data/products.js';
 import { SITE_CONFIG, IS_CONFIGURED } from '../config/site.js';
 import { whatsappUrl, productMessage } from '../lib/whatsapp.js';
+import { shareProduct } from '../lib/share.js';
+import { ShareIcon } from './SocialIcons.jsx';
 
 export default function ProductModal({ product, onClose }) {
   const panelRef = useRef(null);
@@ -101,7 +103,7 @@ export default function ProductModal({ product, onClose }) {
               ))}
             </dl>
 
-            <div className="mt-3">
+            <div className="mt-3 flex gap-2">
               {wa ? (
                 <a href={wa} target="_blank" rel="noopener noreferrer" className="btn btn-accent w-full">
                   <WhatsAppGlyph /> Pedir por WhatsApp
@@ -112,6 +114,15 @@ export default function ProductModal({ product, onClose }) {
                   <strong>configura el número en <code>src/config/site.js</code></strong> para activar este botón.
                 </p>
               )}
+              <button
+                type="button"
+                onClick={() => shareProduct(product, brand.label)}
+                aria-label={`Compartir ${product.name}`}
+                title="Compartir"
+                className="grid h-[3.25rem] w-[3.25rem] shrink-0 place-items-center rounded-full border border-[var(--brand-line)] text-[var(--brand-ink)] transition-colors hover:bg-[color-mix(in_srgb,var(--brand-ink)_8%,transparent)]"
+              >
+                <ShareIcon className="h-5 w-5" />
+              </button>
             </div>
 
             {product.imageType === 'referential' && (

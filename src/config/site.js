@@ -11,9 +11,10 @@ export const SITE_CONFIG = {
 
   // WhatsApp: solo dígitos con código de país, sin + ni espacios. Ej: '5939XXXXXXXX'
   whatsappNumber: '593963461588', // CONFIGURAR
-  instagramHandle: 'SrMichi01', // CONFIGURAR — sin @
+  instagramHandle: 'michicakes.riobamba', // CONFIGURAR — sin @
+  tiktokHandle: 'michicakes.rio', // CONFIGURAR — sin @
   email: 'michicakes.riobamba@gmail.com', // CONFIGURAR
-  location: 'Esmeraldas - Vuelta Larga', // CONFIGURAR — ciudad / referencia
+  location: 'Riobamba - Ecuador', // CONFIGURAR — ciudad / referencia
   businessHours: 'Lun a Sáb · 10:00–18:00', // CONFIGURAR — ej: 'Lun a Sáb · 9:00–19:00'
 
   // Aviso de alérgenos — edítalo o déjalo vacío ('') para ocultarlo.

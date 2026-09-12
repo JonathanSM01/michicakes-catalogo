@@ -6,6 +6,9 @@ import BrandSection from './components/BrandSection.jsx';
 import ProductGrid from './components/ProductGrid.jsx';
 import PackagingShowcase from './components/PackagingShowcase.jsx';
 import HowToOrder from './components/HowToOrder.jsx';
+import Testimonials from './components/Testimonials.jsx';
+import Faq from './components/Faq.jsx';
+import Donations from './components/Donations.jsx';
 import OrderCTA from './components/OrderCTA.jsx';
 import Footer from './components/Footer.jsx';
 import WhatsAppFloat from './components/WhatsAppFloat.jsx';
@@ -74,6 +77,9 @@ export default function App() {
         </BrandSection>
 
         <HowToOrder />
+        <Testimonials />
+        <Faq />
+        <Donations />
         <OrderCTA />
       </main>
       <Footer />

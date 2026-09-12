@@ -1,13 +1,8 @@
 import { SITE_CONFIG, IS_CONFIGURED } from '../config/site.js';
-import { whatsappUrl, generalMessage } from '../lib/whatsapp.js';
 import { Paw } from './Decor.jsx';
+import SocialLinks from './SocialLinks.jsx';
 
 export default function Footer() {
-  const wa = whatsappUrl(generalMessage());
-  const ig = IS_CONFIGURED(SITE_CONFIG.instagramHandle)
-    ? `https://instagram.com/${SITE_CONFIG.instagramHandle}`
-    : null;
-
   return (
     <footer className="bg-[var(--color-cream-deep)] pt-16 pb-12">
       <div className="wrap">
@@ -42,21 +37,8 @@ export default function Footer() {
 
           <div className="text-sm">
             <h3 className="text-[0.66rem] font-bold uppercase tracking-[0.16em] text-[var(--color-caramel)]">Contacto</h3>
+            <SocialLinks className="mt-3" />
             <ul className="mt-3 space-y-2">
-              <li>
-                {wa ? (
-                  <a className="hover:underline" href={wa} target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                ) : (
-                  <span className="text-[color-mix(in_srgb,var(--color-coffee)_52%,transparent)]">WhatsApp · por configurar</span>
-                )}
-              </li>
-              <li>
-                {ig ? (
-                  <a className="hover:underline" href={ig} target="_blank" rel="noopener noreferrer">Instagram</a>
-                ) : (
-                  <span className="text-[color-mix(in_srgb,var(--color-coffee)_52%,transparent)]">Instagram · por configurar</span>
-                )}
-              </li>
               <li>
                 {IS_CONFIGURED(SITE_CONFIG.email) ? (
                   <a className="hover:underline" href={`mailto:${SITE_CONFIG.email}`}>{SITE_CONFIG.email}</a>
