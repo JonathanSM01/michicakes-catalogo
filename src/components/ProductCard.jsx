@@ -1,7 +1,8 @@
 import ProductImage from './ProductImage.jsx';
+import { formatPrice } from '../data/products.js';
 
 export default function ProductCard({ product, onOpen, index = 0 }) {
-  const priceLabel = product.price ? product.price : 'Consultar precio';
+  const priceLabel = formatPrice(product.price);
   const comingSoon = product.status === 'coming-soon' || !product.available;
 
   return (

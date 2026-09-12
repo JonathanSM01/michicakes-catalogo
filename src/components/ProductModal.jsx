@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import ProductImage from './ProductImage.jsx';
-import { BRANDS } from '../data/products.js';
+import { BRANDS, formatPrice } from '../data/products.js';
 import { SITE_CONFIG, IS_CONFIGURED } from '../config/site.js';
 import { whatsappUrl, productMessage } from '../lib/whatsapp.js';
 
@@ -41,7 +41,7 @@ export default function ProductModal({ product, onClose }) {
   if (!product) return null;
   const brand = BRANDS[product.brand];
   const wa = whatsappUrl(productMessage(product, brand.label));
-  const priceLabel = product.price ? product.price : 'Consultar precio';
+  const priceLabel = formatPrice(product.price);
   const comingSoon = product.status === 'coming-soon' || !product.available;
 
   return (

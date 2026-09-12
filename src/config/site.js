@@ -12,6 +12,7 @@ export const SITE_CONFIG = {
   // WhatsApp: solo dígitos con código de país, sin + ni espacios. Ej: '5939XXXXXXXX'
   whatsappNumber: '593963461588', // CONFIGURAR
   instagramHandle: 'SrMichi01', // CONFIGURAR — sin @
+  email: 'michicakes.riobamba@gmail.com', // CONFIGURAR
   location: 'Esmeraldas - Vuelta Larga', // CONFIGURAR — ciudad / referencia
   businessHours: 'Lun a Sáb · 10:00–18:00', // CONFIGURAR — ej: 'Lun a Sáb · 9:00–19:00'
 

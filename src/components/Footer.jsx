@@ -57,6 +57,13 @@ export default function Footer() {
                   <span className="text-[color-mix(in_srgb,var(--color-coffee)_52%,transparent)]">Instagram · por configurar</span>
                 )}
               </li>
+              <li>
+                {IS_CONFIGURED(SITE_CONFIG.email) ? (
+                  <a className="hover:underline" href={`mailto:${SITE_CONFIG.email}`}>{SITE_CONFIG.email}</a>
+                ) : (
+                  <span className="text-[color-mix(in_srgb,var(--color-coffee)_52%,transparent)]">Email · por configurar</span>
+                )}
+              </li>
               <li>{IS_CONFIGURED(SITE_CONFIG.location) ? SITE_CONFIG.location : 'Ubicación · por configurar'}</li>
               <li>{IS_CONFIGURED(SITE_CONFIG.businessHours) ? SITE_CONFIG.businessHours : 'Horario · por configurar'}</li>
             </ul>

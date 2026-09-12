@@ -48,10 +48,10 @@ export const PRODUCTS = [
   {
     id: 'michi-3-leches',
     brand: 'michicakes',
-    name: 'Dulce de 3 leches',
+    name: 'Postre 3 Leches Premium',
     description:
-      'Bizcocho suave y húmedo bañado en tres leches, terminado con una capa cremosa.',
-    price: null,
+      'Bizcocho suave y húmedo bañado en tres leches, chantilli, canela, hilo de manjar y fresa.',
+    price: 1.75,
     presentation: 'Envase transparente 4 × 4',
     image: null,
     imageType: 'referential',
@@ -64,9 +64,9 @@ export const PRODUCTS = [
     brand: 'michicakes',
     name: 'Tiramisú',
     description:
-      'Capas visibles de crema mascarpone, cacao y café, en envase transparente.',
-    price: null,
-    presentation: 'Envase transparente 3 × 4',
+      'Bizcocho mojado en café, crema de queso crema y vainilla.',
+    price: 2.5,
+    presentation: 'Envase transparente 4 × 4',
     image: null,
     imageType: 'referential',
     available: true,
@@ -78,8 +78,8 @@ export const PRODUCTS = [
     brand: 'michicakes',
     name: 'Rollo de canela',
     description:
-      'Masa suave enrollada con canela y glaseado, con apariencia recién horneada.',
-    price: null,
+      'Masa suave enrollada con canela y mantequilla, glaseado de azúcar impalpable, leche y ralladura de limón.',
+    price: 2.5,
     presentation: '4 × 4',
     image: null,
     imageType: 'referential',
@@ -92,8 +92,8 @@ export const PRODUCTS = [
     brand: 'michicakes',
     name: 'Torta de chocolate con almíbar de café',
     description:
-      'Chocolate intenso y húmedo, realzado con un almíbar de café que la vuelve pura indulgencia.',
-    price: null,
+      'Bizcocho de chocolate con almíbar de café y cacao, chantilli con café y ralladura de chocolate semiamargo.',
+    price: 1.75,
     presentation: '4 × 4',
     image: null,
     imageType: 'referential',
@@ -106,9 +106,9 @@ export const PRODUCTS = [
     brand: 'michicakes',
     name: 'Alfajores',
     description:
-      'Alfajores artesanales en fundita, listos para compartir.',
-    price: null,
-    presentation: 'Fundita con 4 unidades',
+      'Tapas de maicena y mantequilla rellenas de manjar, cubiertas con azúcar impalpable.',
+    price: 0.5,
+    presentation: 'Unidad',
     image: null,
     imageType: 'referential',
     available: true,
@@ -135,76 +135,26 @@ export const PRODUCTS = [
   },
 
   // ---------- Don Patacón (brief §28–§30) ----------
+  // Segunda actualización pendiente (después de consolidar MichiCAKES): se muestra
+  // solo la marca con aviso de próximamente, sin desglosar el menú todavía.
   {
-    id: 'patacon-patacones',
+    id: 'patacon-coleccion',
     brand: 'patacon',
-    name: 'Patacones',
+    name: 'Menú Don Patacón',
     description:
-      'Verde frito y aplastado al momento, crocante por fuera y tierno por dentro.',
+      'Patacones, encocados, encebollado y más, con el sazón de la costa ecuatoriana. El menú se está afinando en cocina.',
     price: null,
-    presentation: 'Porción',
+    presentation: 'Próximamente',
     image: null,
     imageType: 'referential',
-    available: true,
+    available: false,
+    status: 'coming-soon',
     featured: true,
-    tags: ['verde', 'crocante', 'tradicional'],
-  },
-  {
-    id: 'patacon-encocados',
-    brand: 'patacon',
-    name: 'Encocados',
-    description:
-      'Marisco en salsa de coco, con el sazón de la costa ecuatoriana.',
-    price: null,
-    presentation: 'Plato',
-    image: null,
-    imageType: 'referential',
-    available: true,
-    featured: true,
-    tags: ['coco', 'marisco', 'costa'],
-  },
-  {
-    id: 'patacon-encebollado',
-    brand: 'patacon',
-    name: 'Encebollado',
-    description:
-      'Caldo de pescado con yuca y encurtido de cebolla. Reconforta como ninguno.',
-    price: null,
-    presentation: 'Plato',
-    image: null,
-    imageType: 'referential',
-    available: true,
-    featured: false,
-    tags: ['caldo', 'pescado', 'yuca'],
-  },
-  {
-    id: 'patacon-canastas',
-    brand: 'patacon',
-    name: 'Canastas',
-    description:
-      'Canasta de patacón rellena, servida con abundancia.',
-    price: null,
-    presentation: 'Unidad',
-    image: null,
-    imageType: 'referential',
-    available: true,
-    featured: false,
-    tags: ['relleno', 'abundante'],
-  },
-  {
-    id: 'patacon-especiales',
-    brand: 'patacon',
-    name: 'Especiales',
-    description:
-      'Preparaciones de la casa que rotan según el día. Consulta la opción disponible.',
-    price: null,
-    presentation: 'Según disponibilidad',
-    image: null,
-    imageType: 'referential',
-    available: true,
-    featured: false,
-    tags: ['rotativo', 'casa'],
+    tags: ['verde', 'marisco', 'próximamente'],
   },
 ];
 
 export const byBrand = (brandKey) => PRODUCTS.filter((p) => p.brand === brandKey);
+
+export const formatPrice = (price) =>
+  price == null ? 'Consultar precio' : `$${price.toFixed(2).replace('.', ',')}`;
