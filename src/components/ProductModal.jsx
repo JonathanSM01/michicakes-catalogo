@@ -75,7 +75,7 @@ export default function ProductModal({ product, onClose }) {
         </button>
 
         <div className="grid gap-0 overflow-y-auto sm:grid-cols-[1.05fr_1fr]">
-          <div className="aspect-[4/3] w-full sm:aspect-auto sm:h-full sm:min-h-[380px]">
+          <div className="aspect-[4/3] w-full sm:self-start">
             <ProductImage product={product} />
           </div>
 
